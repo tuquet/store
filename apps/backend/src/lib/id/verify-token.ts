@@ -47,6 +47,9 @@ export async function verifyIdJwt(token: string): Promise<IdUserPayload | null> 
     }
 
     const jwks = await getJwks()
+    if (!jwks?.keys) {
+      return null
+    }
     const matchingKey = jwks.keys.find((k: any) => !header.kid || k.kid === header.kid)
 
     if (!matchingKey) {
