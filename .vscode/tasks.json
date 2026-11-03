@@ -7,10 +7,6 @@
       "command": "npm",
       "args": ["run", "backend:dev"],
       "isBackground": true,
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
       "presentation": {
         "reveal": "always",
         "panel": "shared",
@@ -32,10 +28,15 @@
       "problemMatcher": []
     },
     {
-      "label": "local: <backend> migrate",
+      "label": "local: <fullstack> dev",
       "type": "shell",
-      "command": "node",
-      "args": ["${workspaceFolder}/apps/backend/node_modules/@medusajs/cli/cli.js", "db:migrate"],
+      "command": "npm",
+      "args": ["run", "dev"],
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
       "presentation": {
         "reveal": "always",
         "panel": "shared",
@@ -44,11 +45,22 @@
       "problemMatcher": []
     },
     {
-      "label": "local: <fullstack> dev",
+      "label": "local: <backend> migrate",
       "type": "shell",
       "command": "npm",
-      "args": ["run", "dev"],
-      "isBackground": true,
+      "args": ["run", "db:migrate", "--workspace=@dtc/backend"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local: <backend> seed",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "backend:seed"],
       "presentation": {
         "reveal": "always",
         "panel": "shared",
