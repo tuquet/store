@@ -2,7 +2,7 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "local(store): <backend> dev",
+      "label": "local: <backend> dev",
       "type": "shell",
       "command": "npm",
       "args": ["run", "backend:dev"],
@@ -19,7 +19,7 @@
       "problemMatcher": []
     },
     {
-      "label": "local(store): <storefront> dev",
+      "label": "local: <storefront> dev",
       "type": "shell",
       "command": "npm",
       "args": ["run", "storefront:dev"],
@@ -32,7 +32,7 @@
       "problemMatcher": []
     },
     {
-      "label": "local(store): <backend> migrate",
+      "label": "local: <backend> migrate",
       "type": "shell",
       "command": "node",
       "args": ["${workspaceFolder}/apps/backend/node_modules/@medusajs/cli/cli.js", "db:migrate"],
@@ -44,7 +44,7 @@
       "problemMatcher": []
     },
     {
-      "label": "local(store): <fullstack> dev",
+      "label": "local: <fullstack> dev",
       "type": "shell",
       "command": "npm",
       "args": ["run", "dev"],
