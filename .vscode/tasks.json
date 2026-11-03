@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "local(store): <backend> dev",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "backend:dev"],
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local(store): <storefront> dev",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "storefront:dev"],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local(store): <backend> migrate",
+      "type": "shell",
+      "command": "node",
+      "args": ["${workspaceFolder}/apps/backend/node_modules/@medusajs/cli/cli.js", "db:migrate"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local(store): <fullstack> dev",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    }
+  ]
+}
