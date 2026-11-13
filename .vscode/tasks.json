@@ -2,6 +2,23 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "local: <fullstack> dev",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "dev"],
+      "isBackground": true,
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
       "label": "local: <backend> dev",
       "type": "shell",
       "command": "npm",
@@ -28,14 +45,51 @@
       "problemMatcher": []
     },
     {
-      "label": "local: <fullstack> dev",
+      "label": "local: <fullstack> build",
       "type": "shell",
       "command": "npm",
-      "args": ["run", "dev"],
-      "isBackground": true,
-      "group": {
-        "kind": "build",
-        "isDefault": true
+      "args": ["run", "build"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": ["$tsc"]
+    },
+    {
+      "label": "local: <fullstack> lint",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "lint"],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local: <backend> lint",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "lint"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/backend"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local: <storefront> lint",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "lint"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/storefront"
       },
       "presentation": {
         "reveal": "always",
@@ -47,8 +101,11 @@
     {
       "label": "local: <backend> migrate",
       "type": "shell",
-      "command": "npm",
-      "args": ["run", "db:migrate", "--workspace=@dtc/backend"],
+      "command": "npx",
+      "args": ["medusa", "db:migrate"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/backend"
+      },
       "presentation": {
         "reveal": "always",
         "panel": "shared",
@@ -59,8 +116,62 @@
     {
       "label": "local: <backend> seed",
       "type": "shell",
+      "command": "npx",
+      "args": ["medusa", "exec", "./src/scripts/seed-demo-products.ts"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/backend"
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local: <backend> test:unit",
+      "type": "shell",
       "command": "npm",
-      "args": ["run", "backend:seed"],
+      "args": ["run", "test:unit"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/backend"
+      },
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local: <backend> test:integration:modules",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "test:integration:modules"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/backend"
+      },
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": true
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "local: <backend> test:integration:http",
+      "type": "shell",
+      "command": "npm",
+      "args": ["run", "test:integration:http"],
+      "options": {
+        "cwd": "${workspaceFolder}/apps/backend"
+      },
+      "group": "test",
       "presentation": {
         "reveal": "always",
         "panel": "shared",
